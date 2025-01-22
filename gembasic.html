@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemstone Store</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #f4f9fc, #c6e2e9);
+            color: #333;
+        }
+        header {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            padding: 8px;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            height: 50px; /* Adjust logo size */
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #444;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: background 0.4s, color 0.3s;
+        }
+        nav a:hover {
+            background: #6a11cb;
+            color: white;
+            border-radius: 5px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .product {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .product:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-bottom: 2px solid #ddd;
+        }
+        .product h3 {
+            margin: 20px 0 10px;
+            font-size: 1.6em;
+            color: #444;
+        }
+        .product p {
+            color: #555;
+            margin: 0 20px 20px;
+            font-size: 1em;
+            line-height: 1.8;
+        }
+        .product button {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            margin: 20px 0;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        .product button:hover {
+            background: linear-gradient(to right, #5c0eb4, #1e64d7);
+        }
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #222;
+            color: white;
+            font-size: 0.95em;
+            margin-top: 30px;
+        }
+        footer p {
+            margin: 0;
+        }
+        #home {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: url('https://img.freepik.com/free-photo/beautiful-shining-jewel_144627-21796.jpg?t=st=1737587197~exp=1737590797~hmac=add24edde292e5d1a313a085a91c3fd7ec76a975efbf40a97e3e793dbd7255db&w=900') center/cover no-repeat;
+            animation: backgroundSlide 15s infinite ease-in-out;
+            color: white;
+            text-align: center;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+            padding: 40px 20px;
+        }
+        #home button {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;}
+        
+        #home, #products, #about, #contact {
+            display: none;
+            padding: 40px 20px;
+            animation: fadeIn 0.6s;
+        }
+        #home.active, #products.active, #about.active, #contact.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('div[id]');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+</head>
+<body>
+
+<header>
+     <!-- Add logo to the header -->
+     <img src="https://cdn.create.vista.com/downloads/ff171ccd-6119-4749-b800-2a06bd5deafc_360.jpeg" alt="Gemstone Store Logo" class="logo">
+    <h1>Your Trusted Gemstone Store</h1>
+</header>
+
+<nav>
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('products')">Products</a>
+    <a href="#" onclick="showPage('about')">About Us</a>
+    <a href="#" onclick="showPage('contact')">Contact</a>
+</nav>
+
+<main>
+    <div id="home" class="active">
+        <h1>Welcome to the Gemstone Store</h1>
+        <p>Discover the beauty and power of authentic gemstones at our store. From vibrant rubies to calming amethysts, our collection is curated to bring elegance and positive energy into your life. Let us help you find the perfect gem for any occasion.</p>
+        <button onclick="showPage('products')">Explore Our Collection</button>
+    </div>
+
+    <div id="products">
+        <h1>Our Exquisite Products</h1>
+        <div class="container">
+            <div class="product">
+                <img src="https://media.istockphoto.com/id/1347772986/photo/red-ruby-on-black-coal-background.jpg?s=612x612&w=0&k=20&c=lY_G1A0MFloEjdZW6Wdmcua-N34Bl4w_xcM2HFdnCOQ=" alt="Ruby">
+                <h3>Ruby</h3>
+                <p>The "King of Gemstones," rubies radiate a fiery red glow and symbolize love, passion, and energy.</p>
+                <button>Explore More</button>
+            </div>
+            <div class="product">
+                <img src="https://media.istockphoto.com/id/178759134/photo/emerald-xl.jpg?s=612x612&w=0&k=20&c=fOeUE3wLI1lp_h_OVUh_Tm1D4Qu2E3-vL79Kv6LgUQw=" alt="Emerald">
+                <h3>Emerald</h3>
+                <p>Known for its lush green hue, the emerald is a timeless symbol of rebirth, prosperity, and elegance.</p>
+                <button>Explore More</button>
+            </div>
+            <div class="product">
+                <img src="https://media.istockphoto.com/id/1222335712/photo/blue-sapphir-on-black-coal-background.jpg?s=612x612&w=0&k=20&c=V8oPVxaF1kslLVyUlL7TUyeEOOO1M7qV1xKXgUUPnqU=" alt="Sapphire">
+                <h3>Sapphire</h3>
+                <p>Sapphires, in their celestial blue tones, stand for wisdom, virtue, and fortune.</p>
+                <button>Explore More</button>
+            </div>
+            <div class="product">
+                <img src="https://shubhanjalistore.com/wp-content/uploads/2020/08/Shubhanjali-Amethyst-Cluster-Raw-Rough-Stone-5.jpg" alt="Amethyst">
+                <h3>Amethyst</h3>
+                <p>With its soothing purple hue, amethyst is a stone of clarity, calmness, and spiritual balance.</p>
+                <button>Explore More</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="about">
+        <h1>About Us</h1>
+        <p>At Gemstone Store, we are dedicated to offering ethically sourced gemstones of the finest quality. With years of experience in the industry, we understand the power and beauty that gemstones bring to people's lives. From vibrant designs to spiritual symbols, we have something special for everyone.</p>
+        <p>Our team works tirelessly to ensure authenticity and perfection in every piece we offer. We are not just selling gemstones; we are sharing timeless stories and traditions.</p>
+    </div>
+
+    <div id="contact">
+        <h1>Contact Us</h1>
+        <p>Have a question or looking for something unique? Connect with us—we’d love to help!</p>
+        <ul>
+            <li>Email: <a href="mailto:support@gemstonestore.com">support@gemstonestore.com</a></li>
+            <li>Phone: +1 (800) 555-1234</li>
+            <li>Address: 123 Gemstone Lane, Crystal City, USA</li>
+        </ul>
+        <p>Follow us on social media for updates and promotions!</p>
+        <p>If you have any questions or need assistance, feel free to reach out to us. We're here to help!</p>
+        <form style="display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 0 auto;">
+            <label for="name" style="font-weight: bold;">Your Name:</label>
+            <input type="text" id="name" name="name" required style="padding: 10px; font-size: 1em; border-radius: 5px; border: 1px solid #ccc;">
+            
+            <label for="email" style="font-weight: bold;">Your Email:</label>
+            <input type="email" id="email" name="email" required style="padding: 10px; font-size: 1em; border-radius: 5px; border: 1px solid #ccc;">
+            
+            <label for="message" style="font-weight: bold;">Your Message:</label>
+            <textarea id="message" name="message" required style="padding: 10px; font-size: 1em; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+            
+            <button type="submit" style="padding: 15px; background-color: #6a11cb; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">Send Message</button>
+        </form>
+        
+    </div>
+</main>
+
+<footer style="text-align: center; padding: 25px; background: #222; color: white; font-size: 0.95em; margin-top: 30px;">
+    <p>&copy; 2025 Gemstone Store. Where authenticity meets elegance.</p>
+    <div style="margin-top: 15px;">
+        <a href="https://www.instagram.com/yourusername" target="_blank" style="color: white; margin: 0 10px; text-decoration: none; font-size: 1.5em;">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://twitter.com/yourusername" target="_blank" style="color: white; margin: 0 10px; text-decoration: none; font-size: 1.5em;">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.facebook.com/yourusername" target="_blank" style="color: white; margin: 0 10px; text-decoration: none; font-size: 1.5em;">
+            <i class="fab fa-facebook"></i>
+        </a>
+    </div>
+</footer>
+
+<!-- Add this inside the <head> tag for Font Awesome icons -->
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+
+</body>
+</html>
